@@ -25,7 +25,7 @@ export function carReducer(state = initialCar, action) {
     case types.REMOVE_ITEM: 
        return {
            ...state,
-           features: state.features.filter(feature => feature.id !== action.payload)
+           features: state.features.filter(feature => feature.id !== action.payload.id)
        }
     default:
       return state;
@@ -42,6 +42,8 @@ export function additionalPriceReducer(state = initialAdditionalPrice, action) {
   switch (action.type) {
     case types.BUY_ITEM:
       return (state += action.payload.feature.price);
+    case types.REMOVE_ITEM:
+        return (state -= action.payload.price)
     default:
       return state;
   }

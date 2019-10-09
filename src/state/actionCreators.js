@@ -4,6 +4,6 @@ export function buyItem(feature) {
     return { type: types.BUY_ITEM, payload: feature };
 }
 
-export function removeItem(id) {
-    return { type: types.REMOVE_ITEM, payload: id };
+export function removeItem(feature) {
+    return { type: types.REMOVE_ITEM, payload: feature };
 }
