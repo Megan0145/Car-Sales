@@ -18,7 +18,7 @@ const initialStore = [
 export function carReducer( state = initialCar, action) {
   switch (action.type) {
       case types.BUY_ITEM:
-          return { ...state, car: [...state.features.concat(action.payload.feature)]}
+          return {  ...state, features: [...state.features, action.payload.feature] }
     default:
       return state;
   }
