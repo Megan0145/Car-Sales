@@ -32,6 +32,8 @@ export function storeReducer(state = initialStore, action) {
 }
 export function additionalPriceReducer(state = initialAdditionalPrice, action) {
     switch (action.type) {
+        case types.BUY_ITEM:
+            return state += action.payload.feature.price
         default:
           return state;
       }
