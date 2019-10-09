@@ -1,6 +1,7 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
 import { connect } from 'react-redux';
+import * as actionCreators from '../state/actionCreators';
 
 export const AdditionalFeatures = props => {
   return (
@@ -20,4 +21,4 @@ export const AdditionalFeatures = props => {
 };
 
 
-export default connect(state=>state, {})(AdditionalFeatures);
+export default connect(state=>state, actionCreators)(AdditionalFeatures);
