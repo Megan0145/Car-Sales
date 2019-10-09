@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 const initialAdditionalPrice = 0;
 const initialCar = {
   price: 26395,
@@ -15,10 +15,18 @@ const initialStore = [
   { id: 4, name: "Rear spoiler", price: 250 }
 ];
 
-export function carReducer( state = initialCar, action) {
+export function carReducer(state = initialCar, action) {
   switch (action.type) {
-      case types.BUY_ITEM:
-          return {  ...state, features: [...state.features, action.payload.feature] }
+    case types.BUY_ITEM:
+      return {
+        ...state,
+        features: [...state.features, action.payload.feature]
+      };
+    case types.REMOVE_ITEM: 
+       return {
+           ...state,
+           features: state.features.filter(feature => feature.id !== action.payload)
+       }
     default:
       return state;
   }
@@ -31,10 +39,10 @@ export function storeReducer(state = initialStore, action) {
   }
 }
 export function additionalPriceReducer(state = initialAdditionalPrice, action) {
-    switch (action.type) {
-        case types.BUY_ITEM:
-            return state += action.payload.feature.price
-        default:
-          return state;
-      }
+  switch (action.type) {
+    case types.BUY_ITEM:
+      return (state += action.payload.feature.price);
+    default:
+      return state;
+  }
 }
